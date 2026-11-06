@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "whisper-transcript-checker"
+version = "0.1.0"
+description = "Find repeated hallucinations, missing spans and unstable recognition in faster-whisper segment JSON/JSONL."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+whisper-check = "transcript_checker.cli:main"
+
+[tool.setuptools]
+packages = ["transcript_checker"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
